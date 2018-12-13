@@ -2,7 +2,7 @@
     <h2>Available themes: </h2>
     <ul>
     {% for theme in theme_list %}
-        <li><a href="{% url 'polls:theme' theme.theme_text %}"></a>{{ theme.theme_text }}</a></li>    
+        <li>{{ theme.theme_text }}</a></li>    
     {% endfor %}
     </ul>
 {% else %}
