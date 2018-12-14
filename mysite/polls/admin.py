@@ -1,7 +1,9 @@
 from django.contrib import admin
 
-from .models import Question, Choice, Theme
+from mysite.polls.models import Perguntas
+from mysite.temas.models import Temas
+from mysite.opcoes.models import Opcoes
 
-admin.site.register(Question)
-admin.site.register(Choice)
-admin.site.register(Theme)
+admin.site.register(Temas)
+admin.site.register(Perguntas)
+admin.site.register(Opcoes)
