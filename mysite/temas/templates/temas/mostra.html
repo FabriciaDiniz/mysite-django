@@ -1,0 +1,12 @@
+<h1>{{ pergunta.tema }}</h1>
+
+{% if lista_perguntas %}
+    <h3>Temas disponíveis: </h3>
+    <ul>
+    {% for pergunta in lista_perguntas %}
+        <li>{{ Perguntas.pergunta_text }}</li>    
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Não há perguntas disponíveis para este tema.</p>
+{% endif %}

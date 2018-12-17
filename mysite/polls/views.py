@@ -14,9 +14,10 @@ class questoesView(generic.ListView):
     context_object_name = 'ultimas_perguntas_lista'
 
     def get_queryset(self):
-        """Return the last five published questions (not including those set to be
+        """Return the last published questions (not including those set to be
         published in the future)."""
-        return Perguntas.objects.filter(tema = self.).filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+        return Perguntas.objects.filter(
+            pub_date__lte=timezone.now()).order_by('-pub_date')
 
 
 # class DetailView(generic.DetailView):
