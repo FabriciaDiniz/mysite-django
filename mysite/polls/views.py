@@ -8,25 +8,16 @@ from mysite.polls.models import Perguntas
 from mysite.temas.models import Temas
 from mysite.opcoes.models import Opcoes
 
-#class IndexView(generic.ListView):
-#    template_name = 'polls/index.html'
-#    context_object_name = 'latest_question_list'
-#
-#    def get_queryset(self):
-#        """Return the last five published questions (not including those set to be
-#        published in the future)."""
-#        return Question.objects.filter(
-#            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+class questoesView(generic.ListView):
+    model = Perguntas
+    template_name = 'polls/index.html'
+    context_object_name = 'ultimas_perguntas_lista'
 
-# class ThemeView(generic.ListView):
-#     model = Perguntas
-#     template_name = 'polls/theme.html'
-#     context_object_name = 'latest_question_list'
+    def get_queryset(self):
+        """Return the last five published questions (not including those set to be
+        published in the future)."""
+        return Perguntas.objects.filter(tema = self.).filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
-# def show_questions(request, tema_text):
-#     tema = get_object_or_404(Temas, pk=tema_text)
-#     return render(request, 'polls/theme.html', {
-#         'latest_question_list': Perguntas.objects.filter(tema=tema_text)})
 
 # class DetailView(generic.DetailView):
 #     # precisa indicar com qual model a generic view vai estar trabalhando
