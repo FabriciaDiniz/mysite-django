@@ -1,0 +1,10 @@
+{% if ultimas_perguntas_lista %}
+    <h3>Perguntas disponíveis: </h3>
+    <ul>
+    {% for perg in ultimas_perguntas_lista %}
+        <li>{{ perg.pergunta_text }}</li>    
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Não há perguntas disponíveis para este tema.</p>
+{% endif %}
