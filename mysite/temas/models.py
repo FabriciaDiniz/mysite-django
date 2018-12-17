@@ -5,3 +5,6 @@ class Temas(models.Model):
     
     def __str__(self):
         return self.tema_text
+
+    class Meta:
+        db_table = 'temas'

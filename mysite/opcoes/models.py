@@ -8,3 +8,6 @@ class Opcoes(models.Model):
     votos = models.IntegerField(default=0)
     def __str__(self):
         return self.opcao_text
+
+    class Meta:
+        db_table = 'opcoes'

@@ -18,14 +18,6 @@ from mysite.opcoes.models import Opcoes
 #        return Question.objects.filter(
 #            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'theme_list'
-
-    def get_queryset(self):
-        """Return the themes available."""
-        return Temas.objects.all()
-
 # class ThemeView(generic.ListView):
 #     model = Perguntas
 #     template_name = 'polls/theme.html'
