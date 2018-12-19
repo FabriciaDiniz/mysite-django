@@ -22,5 +22,5 @@ class DetalheTemaView(generic.DetailView):
         """
         Excludes any questions that aren't published yet.
         """
-        return Perguntas.objects.filter(pub_date__lte=timezone.now()).filter(tema=)
+        return Perguntas.objects.filter(pub_date__lte=timezone.now())#.filter(tema=)
 
