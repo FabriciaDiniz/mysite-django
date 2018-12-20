@@ -18,9 +18,9 @@ class DetalheTemaView(generic.DetailView):
     template_name = 'temas/mostra.html'
     context_object_name = 'lista_perguntas'
 
-    def get_queryset(self):
+    def get_queryset(self, tema_id):
         """
         Excludes any questions that aren't published yet.
         """
-        return Perguntas.objects.filter(pub_date__lte=timezone.now())#.filter(tema=)
+        return Perguntas.objects.filter(pub_date__lte=timezone.now()).filter(tema.id=tema_id)
 
