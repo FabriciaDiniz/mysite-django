@@ -3,9 +3,12 @@ from django.shortcuts import render
 from .models import Temas
 from mysite.polls.models import Perguntas
 
-#TODO: tirar esses negócios e fazer só as funções bonitinhas
 def index(request):
-    return render(request, 'index.html')
+    lista_temas = Temas.objects.all()
+    context = {
+        'lista_temas' : lista_temas
+    }
+    return render(request, 'index.html', context)
 
 #def mostrar(request, tema_id):
 #    perguntas = Temas.objects.get(id=tema_id)

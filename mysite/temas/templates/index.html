@@ -5,6 +5,17 @@
     <title>Temas</title>
 </head>
 <body>
-   <h3>Temas disponíveis</h3> 
+    <h3>Temas disponíveis</h3>
+
+    {% if lista_temas %}
+        <ul>
+        {% for tema in lista_temas %}
+            <li><a href="">{{tema.tema_text}}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há temas disponíveis.</p>
+    {% endif %}
+    <a href="">Adicionar tema</a>
 </body>
 </html>
