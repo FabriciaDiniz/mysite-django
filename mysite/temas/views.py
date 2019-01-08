@@ -10,8 +10,8 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-'''def adiciona(request):
-    return render(request, 'adiciona.html')'''
+def adiciona(request):
+    return render(request, 'adiciona.html')
 
 #def mostrar(request, tema_id):
 #    perguntas = Temas.objects.get(id=tema_id)

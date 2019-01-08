@@ -8,5 +8,5 @@ urlpatterns = [
     #url(r'^temas/$', include(views.index)),
     #url(r'^temas/(?P<tema_id>\d+)$', include(views.mostrar)),
     path('', views.index, name='index'),
-    #path('adiciona/', views.adiciona, name='adiciona'),
+    path('adiciona/', views.adiciona, name='adiciona'),
 ]
