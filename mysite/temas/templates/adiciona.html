@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <!-- importar arquivos css -->
+    <link rel="stylesheet" href="{% static "styles/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "styles/main.css" %}">
     <title>Adicionar novo tema</title>
 </head>
 <body>
     <h3>Cadastrar novo tema: </h3>
     <!-- adicionar um formulário e descobrir como fazer ele salvar no banco de dados -->
+    <form action="" method="POST">
+        <input type="text" value="Tema">
+        <input type="submit" value="Cadastrar">
+    </form>
+    <!--TODO: inserir mensagem de tema cadastrado com sucesso -->
 </body>
 </html>

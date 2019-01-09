@@ -13,6 +13,6 @@ def index(request):
 def adiciona(request):
     return render(request, 'adiciona.html')
 
-#def mostrar(request, tema_id):
-#    perguntas = Temas.objects.get(id=tema_id)
-#    return render(request, 'perfil.html', {"lista_perguntas" : perguntas})
+def mostra(request, tema_id):
+    perguntas = Perguntas.objects.get(id=tema_id)
+    return render(request, 'detalhe.html', {"lista_perguntas" : perguntas})

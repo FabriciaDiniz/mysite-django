@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -7,10 +8,10 @@
 <body>
     <h3>Temas disponíveis</h3>
 
-    {% if lista_temas %}
+    {% if lista_temas %} <!--template tag-->
         <ul>
         {% for tema in lista_temas %}
-            <li><a href="">{{tema.tema_text}}</a></li>
+            <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
         {% endfor %}
         </ul>
     {% else %}
