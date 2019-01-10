@@ -1,23 +1,30 @@
-<!DOCTYPE html>
 {% load staticfiles %}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static "styles/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "styles/main.css" %}">
     <title>Temas</title>
 </head>
 <body>
-    <h3>Temas disponíveis</h3>
-
-    {% if lista_temas %} <!--template tag-->
-        <ul>
-        {% for tema in lista_temas %}
-            <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>Não há temas disponíveis.</p>
-    {% endif %}
-
-    <a href="/temas/adiciona/">Adicionar tema</a>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Temas disponíveis</h3>
+            </div>
+    
+            {% if lista_temas %} <!--template tag-->
+                <ul>
+                {% for tema in lista_temas %}
+                    <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Não há temas disponíveis.</p>
+            {% endif %}
+        </div>
+        <a href="/temas/adiciona/">Adicionar tema</a>
+    </div>
 </body>
 </html>

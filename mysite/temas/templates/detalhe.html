@@ -1,12 +1,25 @@
-<h1>{{ pergunta.tema }}</h1>
-
-{% if lista_perguntas %}
-    <h3>Temas disponíveis: </h3>
-    <ul>
-    {% for pergunta in lista_perguntas %}
-        <li>{{ Perguntas.pergunta_text }}</li>    
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Não há perguntas disponíveis para este tema.</p>
-{% endif %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- acho que aqui pode dar erro pq ele não tá recebendo uma pergunta -->
+    <title>Tema</title>
+</head>
+<body>
+    <div class="container">
+        {% if lista_perguntas %}
+        <strong>{{ Tema }}</strong> 
+        <ul>
+            {% for pergunta in lista_perguntas %}
+            <li>{{ Perguntas.pergunta_text }}</li>    
+            {% endfor %}
+        </ul>
+            {% else %}
+            <p>Não há perguntas disponíveis para este tema.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
