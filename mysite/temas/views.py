@@ -39,6 +39,6 @@ class AdicionaTemaView(View):
 
             Temas(tema_text=dados_form['tema_text']).save()
 
-            return redirect('index')
+            return redirect('/temas/')
         
         return render(request, self.template_name, {'form' : form })
