@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
-from forms import AdicionaTemaForm
+from .forms import AdicionaTemaForm
 
 from .models import Temas
 from mysite.polls.models import Perguntas
