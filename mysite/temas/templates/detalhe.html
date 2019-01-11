@@ -5,21 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- acho que aqui pode dar erro pq ele não tá recebendo uma pergunta -->
-    <title>Tema</title>
+    <link rel="stylesheet" href="{% static "styles/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "styles/main.css" %}">
+    <title>{{ tema.tema_text }}</title>
 </head>
 <body>
     <div class="container">
-        {% if lista_perguntas %}
-        <strong>{{ Tema }}</strong> 
-        <ul>
-            {% for pergunta in lista_perguntas %}
-            <li>{{ Perguntas.pergunta_text }}</li>    
-            {% endfor %}
-        </ul>
-            {% else %}
-            <p>Não há perguntas disponíveis para este tema.</p>
-        {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>{{ tema.tema_text }}</strong>
+            </div>
+            <div class="panel-body">
+                {% with lista_perguntas=tema.perguntas_tema.all  %}
+                    {% if lista_perguntas %}
+                    <ul>
+                        {% for pergunta in lista_perguntas %}
+                        <li>{{ pergunta.pergunta_text }}</li>    
+                        {% endfor %}
+                    </ul>
+                        {% else %}
+                        <p>Não há perguntas disponíveis para este tema.</p>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -13,16 +13,17 @@
             <div class="panel-heading">
                 <h3>Temas disponíveis</h3>
             </div>
-    
-            {% if lista_temas %} <!--template tag-->
-                <ul>
-                {% for tema in lista_temas %}
-                    <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
-                {% endfor %}
-                </ul>
-            {% else %}
-                <p>Não há temas disponíveis.</p>
-            {% endif %}
+            <div class="panel-body">
+                {% if lista_temas %} <!--template tag-->
+                    <ul>
+                    {% for tema in lista_temas %}
+                        <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Não há temas disponíveis.</p>
+                {% endif %}
+            </div>
         </div>
         <a href="/temas/adiciona/">Adicionar tema</a>
     </div>

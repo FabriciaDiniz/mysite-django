@@ -6,14 +6,22 @@
     <!-- importar arquivos css -->
     <link rel="stylesheet" href="{% static "styles/bootstrap.css" %}">
     <link rel="stylesheet" href="{% static "styles/main.css" %}">
-    <title>Adicionar novo tema</title>
+    <title>Cadastrar novo tema</title>
 </head>
 <body>
     <h3>Cadastrar novo tema: </h3>
     <!-- adicionar um formulário e descobrir como fazer ele salvar no banco de dados -->
-    <form action="" method="POST">
-        <input type="text" value="Tema">
+    <form action="/temas/adiciona/" method="POST">
+        {% csrf_token %}
+        <label>Tema: <input type="text" name="tema_text"></label>
         <input type="submit" value="Cadastrar">
+
+        {% if form.errors %}
+            <div class="alert alert-danger"></div>
+            <button type="button" class="close">&times;</button>
+            {{form.non_field_errors}}
+        {% endif %}
+
     </form>
     <!--TODO: inserir mensagem de tema cadastrado com sucesso -->
 </body>
