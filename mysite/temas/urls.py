@@ -9,5 +9,6 @@ urlpatterns = [
     #url(r'^temas/(?P<tema_id>\d+)$', include(views.mostrar)),
     path('', views.index, name='temas-index'),
     path('adiciona/', views.AdicionaTemaView.as_view(), name='temas-adiciona'),
-    path('<int:tema_id>/', views.mostra, name='temas-mostra'),
+    path('<int:pk>/', views.mostra, name='temas-mostra'),
+    path('<int:pk>/delete/', views.delete, name='temas-delete')
 ]

@@ -9,26 +9,28 @@
     <title>Cadastrar novo tema</title>
 </head>
 <body>
-    <h3>Cadastrar novo tema: </h3>
+    <div class="container">
+            <h3>Cadastrar novo tema: </h3>
     
-    {% if msg_erro %}
-        <div class="alert alert-danger">
-            <strong>Tema não cadastrado: </strong>{{ msg_erro }}
-        </div>
-    {% endif %}
-    
-    <form action="/temas/adiciona/" method="POST">
-        {% csrf_token %}
-        <label>Tema: <input type="text" name="tema_text"></label>
-        <input type="submit" value="Cadastrar">
-
-        {% if form.errors %}
-            <div class="alert alert-danger"></div>
-            <button type="button" class="close">&times;</button>
-            {{form.non_field_errors}}
-        {% endif %}
-
-    </form>
-    <!--TODO: inserir mensagem de tema cadastrado com sucesso -->
+            {% if msg_erro %}
+                <div class="alert alert-danger">
+                    <strong>Tema não cadastrado: </strong>{{ msg_erro }}
+                </div>
+            {% endif %}
+            
+            <form action="/temas/adiciona/" method="POST">
+                {% csrf_token %}
+                <label>Tema: <input type="text" name="tema_text"></label>
+                <input type="submit" value="Cadastrar">
+        
+                {% if form.errors %}
+                    <div class="alert alert-danger"></div>
+                    <button type="button" class="close">&times;</button>
+                    {{form.non_field_errors}}
+                {% endif %}
+        
+            </form>
+            <!--TODO: inserir mensagem de tema cadastrado com sucesso -->
+    </div>
 </body>
 </html>

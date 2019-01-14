@@ -9,22 +9,26 @@
 </head>
 <body>
     <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3>Temas disponíveis</h3>
-            </div>
-            <div class="panel-body">
-                {% if lista_temas %} <!--template tag-->
-                    <ul>
-                    {% for tema in lista_temas %}
-                        <li><a href="/temas/{{tema.id}}">{{tema.tema_text}}</a></li>
-                    {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>Não há temas disponíveis.</p>
-                {% endif %}
-            </div>
-        </div>
+        <h3>Temas disponíveis</h3>
+        {% if msg %}
+            <div class="alert alert-success">{{ msg }}</div>
+        {% endif %}
+        {% if lista_temas %} <!--template tag-->
+            <ul>
+            {% for tema in lista_temas %}
+                <li class="list-group-item d-flex">
+                    <a href="/temas/{{tema.id}}" class="">{{tema.tema_text}}
+                        <span class="badge">{{tema.perguntas_tema.count}}</span>
+                    </a>
+                    <a href="">Alterar</a>
+                    <a href="/temas/{{tema.id}}/delete">Excluir</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Não há temas disponíveis.</p>
+        {% endif %}
+        </br>
         <a href="/temas/adiciona/">Adicionar tema</a>
     </div>
 </body>
