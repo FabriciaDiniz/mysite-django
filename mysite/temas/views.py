@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import View
 from django.contrib import messages
 
-from .forms import AdicionaTemaForm
+from .forms import AdicionaTemaForm, TemaForm
 from .models import Temas
 from mysite.polls.models import Perguntas
 
@@ -43,6 +43,24 @@ class AdicionaTemaView(View):
             return redirect('/temas/')
         
         return render(request, self.template_name, {'form' : form, 'msg_erro' : "Tema já existe no sistema" })
+
+def edit(request, pk):
+
+    tema = get_object_or_404(Temas, pk=pk)
+    form = TemaForm(request.POST or None)
+
+    if request.method=='POST':
+        if form.is_valid:
+            produto = form.save()            
+            messages.success(request, 'Tema alterado com sucesso!')
+            return redirect('/temas/')
+        else:
+            messages.error(request, 'Tema não alterado!')
+    context = {
+        'form': form,
+        'pk': pk
+    }
+    return render(request, 'edita.html', context) 
 
 def delete(request, pk):
     tema = get_object_or_404(Temas, pk=pk)

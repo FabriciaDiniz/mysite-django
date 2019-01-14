@@ -20,3 +20,7 @@ class AdicionaTemaForm(forms.Form):
     def adiciona_erro(self, message):
         erros = self._errors.setdefault(forms.forms.NON_FIELD_ERRORS, forms.utils.ErrorList())
         erros.append(message)
+
+class TemaForm(forms.Form):
+
+    tema_text = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
