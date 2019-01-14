@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
-from .forms import AdicionaTemaForm
 
+from .forms import AdicionaTemaForm
 from .models import Temas
 from mysite.polls.models import Perguntas
 
@@ -33,12 +33,15 @@ class AdicionaTemaView(View):
     def post(self, request):
 
         form = AdicionaTemaForm(request.POST)
+        dados_form = form.data
+        novo_tema = dados_form['tema_text']
 
-        if form.is_valid():
-            dados_form = form.data
+        ja_existe = Temas.objects.filter(tema_text__icontains=novo_tema).exists()
 
-            Temas(tema_text=dados_form['tema_text']).save()
+        if (not ja_existe and form.is_valid()):
+
+            Temas(tema_text=novo_tema).save()
 
             return redirect('/temas/')
         
-        return render(request, self.template_name, {'form' : form })
+        return render(request, self.template_name, {'form' : form, 'msg_erro' : "Tema já existe no sistema" })

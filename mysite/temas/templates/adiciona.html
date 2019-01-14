@@ -10,7 +10,13 @@
 </head>
 <body>
     <h3>Cadastrar novo tema: </h3>
-    <!-- adicionar um formulário e descobrir como fazer ele salvar no banco de dados -->
+    
+    {% if msg_erro %}
+        <div class="alert alert-danger">
+            <strong>Tema não cadastrado: </strong>{{ msg_erro }}
+        </div>
+    {% endif %}
+    
     <form action="/temas/adiciona/" method="POST">
         {% csrf_token %}
         <label>Tema: <input type="text" name="tema_text"></label>
