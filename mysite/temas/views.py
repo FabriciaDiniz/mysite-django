@@ -47,19 +47,21 @@ class AdicionaTemaView(View):
 def edit(request, pk):
 
     tema = get_object_or_404(Temas, pk=pk)
-    form = TemaForm(request.POST or None)
+    form = TemaForm(request.POST or None, instance=tema)
 
     if request.method=='POST':
         if form.is_valid:
-            produto = form.save()            
+            form.save()            
             messages.success(request, 'Tema alterado com sucesso!')
             return redirect('/temas/')
         else:
             messages.error(request, 'Tema não alterado!')
+    
     context = {
         'form': form,
         'pk': pk
     }
+
     return render(request, 'edita.html', context) 
 
 def delete(request, pk):
