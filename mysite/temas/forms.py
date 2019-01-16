@@ -24,5 +24,8 @@ class AdicionaTemaForm(forms.Form):
 
 class TemaForm(forms.ModelForm):
 
+    tema_text = forms.CharField(label='Tema', max_length=200)
+
     class Meta:
         model = Temas
+        fields = '__all__'
