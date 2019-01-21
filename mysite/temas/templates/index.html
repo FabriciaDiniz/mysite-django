@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load sekizai_tags %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +21,7 @@
                     <a href="/temas/{{tema.id}}" class="">{{tema.tema_text}}
                         <span class="badge">{{tema.perguntas_tema.count}}</span>
                     </a>
-                    <a href="">Alterar</a>
+                    <a href="/temas/{{tema.id}}/edit/">Alterar</a>
                     <a href="/temas/{{tema.id}}/delete">Excluir</a>
                 </li>
             {% endfor %}

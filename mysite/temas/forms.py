@@ -1,4 +1,5 @@
 from django import forms
+from .models import Temas
 
 #valida os dados adicionados ao formulário de cadastro de um novo tema
 class AdicionaTemaForm(forms.Form):
@@ -20,3 +21,11 @@ class AdicionaTemaForm(forms.Form):
     def adiciona_erro(self, message):
         erros = self._errors.setdefault(forms.forms.NON_FIELD_ERRORS, forms.utils.ErrorList())
         erros.append(message)
+
+class TemaForm(forms.ModelForm):
+
+    tema_text = forms.CharField(label='Tema', max_length=200)
+
+    class Meta:
+        model = Temas
+        fields = '__all__'
