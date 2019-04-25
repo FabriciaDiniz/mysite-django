@@ -49,9 +49,9 @@ def edit(request, pk):
     tema = get_object_or_404(Temas, pk=pk)
     form = TemaForm(request.POST or None, instance=tema)
 
-    if request.method=='POST':
+    if request.method == 'POST':
         if form.is_valid:
-            form.save()            
+            haha = form.save()            
             messages.success(request, 'Tema alterado com sucesso!')
             return redirect('/temas/')
         else:
@@ -59,9 +59,9 @@ def edit(request, pk):
     
     context = {
         'form': form,
-        'pk': pk
+        'pk': pk,
+        'tema': tema
     }
-
     return render(request, 'edita.html', context) 
 
 def delete(request, pk):
