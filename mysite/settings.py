@@ -25,6 +25,8 @@ SECRET_KEY = '5ltd2o^i#-+%^v&v7d-f^42vjtii03!k9y$7fda=+f_5foe599'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Quando DEBUG for True e ALLOWED_HOSTS estiver vazia
+# o domínio do site será validado como ['localhost', '127.0.0.1', '[::1]']
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'fabriciadiniz.pythonanywhere.com',
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Fortaleza'
 
