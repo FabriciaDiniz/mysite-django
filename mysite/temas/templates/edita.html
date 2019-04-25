@@ -1,5 +1,5 @@
 {% load staticfiles %}
-{% load sekizai_tags %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,6 +20,7 @@
         {% endif %}
 
         <form action="/temas/{{tema.id}}/edit/" method="POST">
+            
             {% csrf_token %}
             <div>
                 {% for field in form %}
