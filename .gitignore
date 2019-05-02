@@ -1,5 +1,9 @@
 .vscode/
-db.sqlite3
-mysite/__pycache__
 *.pyc
+*~
+mysite/__pycache__
 myvenv
+db.sqlite3
+/static
+.DS_Store
+.idea/
