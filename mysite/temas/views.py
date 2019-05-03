@@ -4,7 +4,7 @@ from django.contrib import messages
 
 from .forms import AdicionaTemaForm, TemaForm
 from .models import Temas
-from mysite.polls.models import Perguntas
+from mysite.perguntas.models import Perguntas
 
 def index(request):
     lista_temas = Temas.objects.all()
@@ -17,7 +17,7 @@ def adiciona(request):
     return render(request, 'adiciona.html')
 
 def mostra(request, pk):
-    return render(request, 'detalhe.html', {'tema' : Temas.objects.get(pk=pk)})
+    return render(request, 'detalhe.html', {'tema': Temas.objects.get(pk=pk)})
 
 class AdicionaTemaView(View):
     
@@ -32,9 +32,7 @@ class AdicionaTemaView(View):
         dados_form = form.data
         novo_tema = dados_form['tema_text']
 
-        #usando o filter e não o get pq o get gera uma excessão se achar mais de um obj 
-        # (e por enquanto ainda tem uns temas repetidos)
-        ja_existe = Temas.objects.filter(tema_text__icontains=novo_tema).exists()
+        ja_existe = Temas.objects.get(tema_text__icontains=novo_tema).exists()
 
         if (not ja_existe and form.is_valid()):
 
@@ -42,7 +40,7 @@ class AdicionaTemaView(View):
 
             return redirect('/')
         
-        return render(request, self.template_name, {'form' : form, 'msg_erro' : "Tema já existe no sistema" })
+        return render(request, self.template_name, {'form' : form, 'msg_erro': "Tema já existe no sistema" })
 
 def edit(request, pk):
 
@@ -67,4 +65,4 @@ def edit(request, pk):
 def delete(request, pk):
     tema = get_object_or_404(Temas, pk=pk)
     tema.delete()
-    return redirect('/', { 'msg' : "Tema deletado com sucesso" })
+    return redirect('/', { 'msg': "Tema deletado com sucesso" })

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mysite.polls.models import Perguntas
+from mysite.perguntas.models import Perguntas
 from mysite.temas.models import Temas
 from mysite.opcoes.models import Opcoes
 
