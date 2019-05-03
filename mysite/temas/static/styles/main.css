@@ -30,6 +30,10 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+title {
+  text-align: center;
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 730px;

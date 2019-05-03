@@ -40,7 +40,7 @@ class AdicionaTemaView(View):
 
             Temas(tema_text=novo_tema).save()
 
-            return redirect('/temas/')
+            return redirect('/')
         
         return render(request, self.template_name, {'form' : form, 'msg_erro' : "Tema já existe no sistema" })
 
@@ -53,7 +53,7 @@ def edit(request, pk):
         if form.is_valid:
             haha = form.save()            
             messages.success(request, 'Tema alterado com sucesso!')
-            return redirect('/temas/')
+            return redirect('/')
         else:
             messages.error(request, 'Tema não alterado!')
     
@@ -67,4 +67,4 @@ def edit(request, pk):
 def delete(request, pk):
     tema = get_object_or_404(Temas, pk=pk)
     tema.delete()
-    return redirect('/temas/', { 'msg' : "Tema deletado com sucesso" })
+    return redirect('/', { 'msg' : "Tema deletado com sucesso" })
