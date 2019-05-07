@@ -4,7 +4,7 @@ from django.contrib import messages
 
 from .forms import AdicionaTemaForm, TemaForm
 from .models import Temas
-from mysite.perguntas.models import Perguntas
+from mysite.polls.models import Perguntas
 
 def index(request):
     lista_temas = Temas.objects.all()

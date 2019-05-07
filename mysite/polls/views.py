@@ -7,7 +7,7 @@ from django.views import generic
 from django.utils import timezone
 from .forms import PerguntaForm, AdicionaPerguntaForm
 
-from mysite.perguntas.models import Perguntas
+from mysite.polls.models import Perguntas
 from mysite.temas.models import Temas
 from mysite.opcoes.models import Opcoes
 
