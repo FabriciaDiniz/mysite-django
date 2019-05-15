@@ -21,6 +21,7 @@ class AdicionaPerguntaForm(forms.Form):
         erros = self._errors.setdefault(forms.forms.NON_FIELD_ERRORS, forms.utils.ErrorList())
         erros.append(message)
 
+
 class PerguntaForm(forms.ModelForm):
 
     pergunta_text = forms.CharField(label='Pergunta', max_length=200)

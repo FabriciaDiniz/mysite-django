@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <!-- importar arquivos css -->
-    <link rel="stylesheet" href="{% static "styles/bootstrap.css" %}">
-    <link rel="stylesheet" href="{% static "styles/main.css" %}">
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <title>Cadastrar nova pergunta</title>
 </head>
 <body>
@@ -20,9 +20,18 @@
 
             <form action="/perguntas/adiciona/" method="POST">
                 {% csrf_token %}
-                <input type="text" name="pergunta_text">
-                <!-- adicionar opção de cadastrar opções -->
-                <input type="submit" value="Cadastrar">
+                <input type="text" name="pergunta_text" style="width: 400px;">
+
+                <!-- TODO: adicionar opção de cadastrar opções -->
+                <div id="add_opcoes">
+                    <input type="text" class="opc" name="opc1">
+                    <input type="text" class="opc" name="opc2">
+                    <button class="btn btn-primary text-center" type="button" id="add_opcao">
+                        Adicionar opção
+                    </button>
+                </div>
+
+                <input class="btn btn-primary text-center" type="submit" value="Cadastrar">
 
                 {% if form.errors %}
                     <div class="alert alert-danger"></div>

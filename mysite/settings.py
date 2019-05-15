@@ -115,15 +115,17 @@ LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'America/Fortaleza'
 
-USE_I18N = True # diz se o sistema de tradução do django deve estar ativo
+USE_I18N = True  # diz se o sistema de tradução do django deve estar ativo
 
-USE_L10N = True # mostra números e datas formatados de acordo com a minha timezone
+USE_L10N = True  # mostra números e datas formatados de acordo com a minha timezone
 
-USE_TZ = True # usa "timezone-aware datetimes"
+USE_TZ = True  # usa "timezone-aware datetimes"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
